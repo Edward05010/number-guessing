@@ -32,7 +32,7 @@ input {
   border: none;
   margin: 10px auto;
   display: block;
-  font-size: 16px; /* important for mobile zoom prevention */
+  font-size: 16px; 
 }
 
 
@@ -66,25 +66,25 @@ button {
   transition: all 0.2s ease;
 }
 
-/* Main buttons hover */
+
 button:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 10px 25px rgba(106, 90, 249, 0.5);
   filter: brightness(1.1);
 }
 
-/* Back button base style */
+
 button:first-child {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.3);
   color: white;
 }
 
-/* Back button hover effect */
+
 button:first-child:hover {
   background: rgba(255,255,255,0.1);
-  box-shadow: 0 0 0 rgba(0,0,0,0); /* no glow */
-  transform: translateX(-3px); /* slide left effect */
+  box-shadow: 0 0 0 rgba(0,0,0,0); 
+  transform: translateX(-3px); 
   filter: brightness(1.2);
 }
 
@@ -112,4 +112,5 @@ button:first-child:hover {
     font-size: 14px;
   }
 }
+
 
