@@ -154,7 +154,7 @@ window.leaveRoom = async () => {
   if (controls) controls.remove();
 };
 
-// Enable Enter key to submit guess in multiplayer
+
 document.addEventListener("keydown", (e) => {
   const gameDiv = document.getElementById("game");
 
@@ -166,3 +166,4 @@ document.addEventListener("keydown", (e) => {
     makeGuess();
   }
 });
+
