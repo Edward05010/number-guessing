@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guess Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- MODE SELECT -->
+<div class="card" id="modeSelect">
+  <h2>Choose Mode</h2>
+  <button onclick="startSingle()">Single Player</button>
+  <button onclick="startMulti()">Multiplayer</button>
+</div>
+
+<!-- SINGLE PLAYER -->
+<div class="card hidden" id="singleGame">
+  <button onclick="goBack()">⬅ Back</button>
+
+  <h2>Single Player</h2>
+  <p id="singleMsg"></p>
+  <p id="singleAttempts"></p>
+
+  <input id="singleInput" type="number" placeholder="Enter guess">
+  <button onclick="singleGuess()">Guess</button>
+  <button onclick="resetSingle()">Reset</button>
+</div>
+
+<!-- MULTIPLAYER -->
+<div class="card hidden" id="multiGame">
+
+  <button onclick="goBack()">⬅ Back</button>
+
+  <div id="lobby">
+    <h2>Multiplayer</h2>
+
+    <button onclick="createRoom()">Create Room</button>
+
+    <input id="roomInput" placeholder="Room Code">
+    <button onclick="joinRoom()">Join</button>
+  </div>
+
+  <div id="game" class="hidden">
+    <h3 id="roomCodeText"></h3>
+    <p id="turnText"></p>
+
+    <input id="guessInput" type="number" placeholder="Enter guess">
+    <button onclick="makeGuess()">Guess</button>
+
+    <p id="message"></p>
+  </div>
+
+</div>
+
+<!-- MODE SWITCH + BACK LOGIC -->
+<script>
+function startSingle() {
+  document.getElementById("modeSelect").classList.add("hidden");
+  document.getElementById("singleGame").classList.remove("hidden");
+}
+
+function startMulti() {
+  document.getElementById("modeSelect").classList.add("hidden");
+  document.getElementById("multiGame").classList.remove("hidden");
+}
+
+function goBack() {
+
+  // Leave multiplayer room if active
+  if (!document.getElementById("multiGame").classList.contains("hidden")) {
+    if (typeof leaveRoom === "function") {
+      leaveRoom();
+    }
+  }
+
+  document.getElementById("singleGame").classList.add("hidden");
+  document.getElementById("multiGame").classList.add("hidden");
+  document.getElementById("modeSelect").classList.remove("hidden");
+}
+</script>
+
+<!-- GAME LOGIC FILES -->
+<script src="singleplayer.js"></script>
+<script type="module" src="multiplayer.js"></script>
+
+</body>
+</html>
